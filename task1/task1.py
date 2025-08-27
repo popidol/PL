@@ -1,3 +1,5 @@
+import sys
+
 def gen_arr(n, m):
     arr = [1]
     cur = 1
@@ -11,7 +13,18 @@ def gen_arr(n, m):
         arr.append(cur)
     return arr
 
+if len(sys.argv) != 5:
+    print("Не все аргументы")
+    sys.exit(1)
 
-a = gen_arr((int(input("n1: "))), (int(input("m1: "))))
-b = gen_arr((int(input("n2: "))), (int(input("m3: "))))
-print(list(a + b))
+n1 = int(sys.argv[1])
+m1 = int(sys.argv[2])
+n2 = int(sys.argv[3])
+m2 = int(sys.argv[4])
+    
+a = gen_arr(n1, m1)
+b = gen_arr(n2, m2)
+    
+result = ''.join(str(x) for x in a + b)
+print(result)
+    
